@@ -1,0 +1,34 @@
+﻿@model ProjectSDA.Models.Student
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "Update";
+
+}
+
+
+<h1>Update Student</h1>
+
+
+<form asp-action="Update" method="post">
+
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" asp-for="name" />
+    </div>
+
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input type="number" class="form-control" asp-for="age" />
+    </div>
+
+    <br />
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+
