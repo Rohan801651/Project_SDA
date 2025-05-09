@@ -68,6 +68,42 @@ namespace ProjectSDA.Controllers
             return View(student);
         }
 
+        // delete
+
+        public IActionResult Delete(int id)
+        {
+            var Student = context.Students.Find(id);
+            if(Student == null)
+            {
+                return NotFound();
+            }
+            return View(Student);
+        }
+
+        // [HttpDelete]
+
+        [HttpPost]
+        public IActionResult Delete(Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Students.Remove(student);
+                context.SaveChanges();
+                return RedirectToAction("AllStudents");
+            }
+            return View(student);
+        }
+        // details
+        public IActionResult Details(int id)
+        {
+            var student = context.Students.Find(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return View(student);
+        }
+
 
 
 
