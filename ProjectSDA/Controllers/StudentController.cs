@@ -80,29 +80,31 @@ namespace ProjectSDA.Controllers
             return View(Student);
         }
 
-        // [HttpDelete]
+        [HttpPost, ActionName("Delete")] // ActionName is used to specify the name of the action method that will be called when the form is submitted
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var Student = context.Students.Find(id);
 
-        [HttpPost]
-        public IActionResult Delete(Student student)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Students.Remove(student);
-                context.SaveChanges();
-                return RedirectToAction("AllStudents");
-            }
-            return View(student);
-        }
-        // details
-        public IActionResult Details(int id)
-        {
-            var student = context.Students.Find(id);
-            if (student == null)
+            if (Student == null)
             {
                 return NotFound();
             }
-            return View(student);
+            
+            context.Students.Remove(Student);
+            context.SaveChanges();
+            return View(Student);
         }
+
+        //// details
+        //public IActionResult Details(int id)
+        //{
+        //    var student = context.Students.Find(id);
+        //    if (student == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(student);
+        //}
 
 
 
