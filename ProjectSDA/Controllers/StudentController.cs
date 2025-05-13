@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjectSDA.Data;
 using ProjectSDA.Models;
 
@@ -8,16 +9,17 @@ namespace ProjectSDA.Controllers
     public class StudentController : Controller
     {
      
-        private readonly StudentRepo context;
+        private readonly AppRepo context;
 
-        public StudentController(StudentRepo context)
+        public StudentController(AppRepo context)
         {
             this.context = context;
         }
 
+
         public IActionResult AllStudents()
         {
-            var students = context.Students.ToList();
+            var students = context.Students.Include(s => s.StudentAccount).ToList();
             return View(students);
         }
 
@@ -105,6 +107,8 @@ namespace ProjectSDA.Controllers
         //    }
         //    return View(student);
         //}
+
+
 
 
 

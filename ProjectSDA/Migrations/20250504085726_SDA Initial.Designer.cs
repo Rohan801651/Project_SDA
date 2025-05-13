@@ -10,7 +10,7 @@ using ProjectSDA.Data;
 
 namespace ProjectSDA.Migrations
 {
-    [DbContext(typeof(StudentRepo))]
+    [DbContext(typeof(AppRepo))]
     [Migration("20250504085726_SDA Initial")]
     partial class SDAInitial
     {

@@ -1,4 +1,6 @@
-﻿namespace ProjectSDA.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ProjectSDA.Models
 {
     public class Teacher
     {
@@ -7,13 +9,18 @@
         public string Email { get; set; }
         public string Subject { get; set; }
 
-        public Teacher(int id, string name, string email, string subject)
-        {
-            Id = id;
-            Name = name;
-            Email = email;
-            Subject = subject;
-        }
+        ////public int StudentId { get; set; }
+
+        ////[ForeignKey("StudentId")]
+        ////public Student? Student { get; set; }
+        ///
+
+        // constructor
+        //public Teacher()
+        //{
+            
+        //}
+
 
 
 

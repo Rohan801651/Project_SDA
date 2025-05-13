@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectSDA.Data;
 
@@ -10,9 +11,11 @@ using ProjectSDA.Data;
 namespace ProjectSDA.Migrations
 {
     [DbContext(typeof(AppRepo))]
-    partial class StudentRepoModelSnapshot : ModelSnapshot
+    [Migration("20250512194245_One to One relation")]
+    partial class OnetoOnerelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

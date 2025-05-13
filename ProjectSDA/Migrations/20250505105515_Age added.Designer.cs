@@ -10,7 +10,7 @@ using ProjectSDA.Data;
 
 namespace ProjectSDA.Migrations
 {
-    [DbContext(typeof(StudentRepo))]
+    [DbContext(typeof(AppRepo))]
     [Migration("20250505105515_Age added")]
     partial class Ageadded
     {
