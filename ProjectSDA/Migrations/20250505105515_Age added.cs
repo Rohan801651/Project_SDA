@@ -12,7 +12,7 @@ namespace ProjectSDA.Migrations
         {
             migrationBuilder.AddColumn<int>(
                 name: "age",
-                table: "Students",
+                table: "Student",
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
@@ -23,7 +23,7 @@ namespace ProjectSDA.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "age",
-                table: "Students");
+                table: "Student");
         }
     }
 }

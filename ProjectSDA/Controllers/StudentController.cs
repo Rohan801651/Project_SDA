@@ -19,7 +19,7 @@ namespace ProjectSDA.Controllers
 
         public IActionResult AllStudents()
         {
-            var students = context.Students.Include(s => s.StudentAccount).ToList();
+            var students = context.Student.ToList();
             return View(students);
         }
 
@@ -41,7 +41,7 @@ namespace ProjectSDA.Controllers
         {
             if(ModelState.IsValid)
             {
-                context.Students.Add(student);
+                context.Student.Add(student);
                 context.SaveChanges();
                 return RedirectToAction("AllStudents");
             }
@@ -51,7 +51,7 @@ namespace ProjectSDA.Controllers
         // update
         public IActionResult Update(int id)
         {
-            var student = context.Students.Find(id);
+            var student = context.Student.Find(id);
             if (student == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace ProjectSDA.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.Students.Update(student);
+                context.Student.Update(student);
                 context.SaveChanges();
                 return RedirectToAction("AllStudents");
             }
@@ -74,7 +74,7 @@ namespace ProjectSDA.Controllers
 
         public IActionResult Delete(int id)
         {
-            var Student = context.Students.Find(id);
+            var Student = context.Student.Find(id);
             if(Student == null)
             {
                 return NotFound();
@@ -85,14 +85,14 @@ namespace ProjectSDA.Controllers
         [HttpPost, ActionName("Delete")] // ActionName is used to specify the name of the action method that will be called when the form is submitted
         public IActionResult DeleteConfirmed(int id)
         {
-            var Student = context.Students.Find(id);
+            var Student = context.Student.Find(id);
 
             if (Student == null)
             {
                 return NotFound();
             }
             
-            context.Students.Remove(Student);
+            context.Student.Remove(Student);
             context.SaveChanges();
             return View(Student);
         }

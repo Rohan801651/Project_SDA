@@ -41,7 +41,7 @@ namespace ProjectSDA.Data
         }
 
 
-        public DbSet<Student> Students { get; set; }   // Table name is Students
+        public DbSet<Student> Student { get; set; }   // Table name is Students
         public DbSet<StudentAccount> StudentAccounts { get; set; } // Table name is StudentAccounts
 
 
